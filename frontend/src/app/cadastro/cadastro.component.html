@@ -1,0 +1,48 @@
+<app-header [pagina]="pagina"></app-header>
+<body>
+<div class="container">
+    <div [@fadeInAnimation] class="half">
+      <img src="../../assets/login.jpeg" alt="Imagem" class="image" />
+    </div>
+    <div [@fadeInAnimation] class="half">
+      <form>
+        <mat-form-field class="full-width">
+          <mat-label>Nome</mat-label>
+          <input matInput required/>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>CPF</mat-label>
+          <input matInput type="text" [mask]="'000.000.000-00'" placeholder="000.000.000-00" required/>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Peso (em Kg)</mat-label>
+          <input matInput type="number"/>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Data de Nascimento</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" [mask]="'00/00/0000'">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input type="number" matInput placeholder="Altura (em metros)" />
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>UF</mat-label>
+          <mat-select required>
+            <mat-option value="">Selecione uma opção</mat-option>
+            <mat-option value="AC">Acre</mat-option>
+            <mat-option value="AL">Alagoas</mat-option>
+            <!-- Adicione as outras opções aqui -->
+          </mat-select>
+        </mat-form-field>
+        <div class="button-container">
+          <button mat-raised-button color="primary" type="submit" class="custom-button">Enviar</button>
+          <span class="button-separator"></span>
+          <button mat-raised-button color="warn" class="custom-button">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+<app-footer></app-footer>
