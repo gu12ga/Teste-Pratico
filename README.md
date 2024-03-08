@@ -31,9 +31,13 @@ Lombok (groupId: org.projectlombok, artifactId: lombok)
 # Depêndencias e Materais usados no Angular
 <p>
 Angular Material
+  
 angular-input-masks
+
 crypto-js
+
 ngx-mask
+
 rxjs
 </p>
 
