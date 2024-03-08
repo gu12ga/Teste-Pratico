@@ -1,21 +1,18 @@
 <app-header [pagina]="pagina"></app-header>
-
-<body>
-  <div class="container">
-    <div [@fadeInAnimation] class="centered-container">
-      <h1>Bem vindo</h1>
-      <form>
-        <mat-form-field class="full-width">
-          <mat-label>Nome</mat-label>
-          <input matInput required/>
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <mat-label>CPF</mat-label>
-          <input matInput type="text" [mask]="'000.000.000-00'" placeholder="000.000.000-00" required/>
-        </mat-form-field>
-        <button mat-raised-button color="primary" type="submit" class="custom-button">Entrar</button>
-      </form>
-    </div>
+<div class="container">
+  <div [@fadeInAnimation] class="centered-container">
+    <h1>Bem vindo</h1>
+    <form (submit)="enviarFormulario(cpfInput.value, senhaInput.value)">
+      <mat-form-field class="full-width">
+        <mat-label>CPF</mat-label>
+        <input matInput #cpfInput name="cpf" type="text" [mask]="'000.000.000-00'" placeholder="000.000.000-00" required/>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Senha</mat-label>
+        <input matInput #senhaInput type="password" name="senha" required/>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" class="custom-button">Entrar</button>
+    </form>
   </div>
-</body>
+</div>
 <app-footer></app-footer>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -6,9 +6,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { ApiService } from '../services/api.service';
+import { CriptogriaUtil } from '../utils/criptgrafia.util';
 
 @Component({
   selector: 'app-login',
@@ -23,10 +26,11 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
     HeaderComponent,
     FooterComponent,
     NgxMaskDirective,
-    NgxMaskPipe
+    NgxMaskPipe,
+    HttpClientModule
   ],
   providers: [
-    provideNgxMask(),
+    provideNgxMask(), CriptogriaUtil
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
@@ -40,9 +44,17 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
   ],
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
+  
+  constructor(private apiService: ApiService, private cripto: CriptogriaUtil) {}
 
   ngOnInit(): void {}
 
   pagina: string = 'Login';
+
+  enviarFormulario(cpf: string, senha: string): void {
+    var cpf_cript = this.cripto.encrypt(cpf);
+
+    console.log(cpf_cript);
+    
+  }
 }

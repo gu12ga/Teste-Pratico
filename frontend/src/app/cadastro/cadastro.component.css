@@ -1,44 +1,41 @@
 .container {
     display: flex;
-    
     height: 100vh;
     overflow: hidden;
-  }
+    position: relative;
+}
   
-  .half {
-    flex: 1;
-    overflow: hidden;
-  }
-  
-  /*
-  .image {
+.custom-image{
     width: 100%;
     height: 100%;
-  }
-  */
-  
-  form {
-    padding: 16px;
-  }
-  
-  .full-width {
-    width: 100%;
-  }
+}
 
-  .button-container {
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.custom-form{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px; /* Adapte a margem conforme necessário */
-  }
-  
-  .button-separator {
-    width: 10px; /* Adapte a largura conforme necessário */
-  }
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    background-color: rgba(255,255,255,0.2);
+    padding: 16px;
+    border-radius: 12px;
+}
 
-  .custom-button {
-    width: 150px; /* Adapte a largura conforme necessário */
-    margin-right: 10px; /* Adapte a margem entre os botões conforme necessário */
-  }
-  
-  
+form{
+  display: flex;
+  flex-direction: column;
+}
+
+.button-container{
+  display: flex;
+  gap: 16px;
+}
+
+.custom-button{
+  flex: 1;
+}

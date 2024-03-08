@@ -1,10 +1,12 @@
 package com.clinica.backend.models;
 
-import javax.persistence.*;
+import lombok.Data;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
+@Data
 @Table(name = "paciente", schema = "clinica_medica")
 public class Paciente {
 
@@ -26,6 +28,5 @@ public class Paciente {
     @JoinColumn(name = "id_pessoa")
     private Pessoa pessoa;
 
-    // getters and setters
 }
 

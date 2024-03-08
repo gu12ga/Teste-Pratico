@@ -9,6 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { ApiService } from '../services/api.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cadastro',
@@ -23,7 +25,8 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
     HeaderComponent,
     FooterComponent,
     NgxMaskDirective,
-    NgxMaskPipe
+    NgxMaskPipe,
+    CommonModule
   ],
   providers: [
     provideNgxMask(),
@@ -40,9 +43,19 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
   ],
 })
 export class CadastroComponent implements OnInit {
-  constructor() {}
+  constructor(private apiService: ApiService) {}
 
   pagina: string = 'Cadastro Pacientes';
+  UFs: string[] = [];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.apiService.getUFs().subscribe((data) => {
+      this.UFs = data;
+      console.log(this.UFs);
+    },
+    (error) => {
+      console.error('Erro na solicitação HTTP:', error);
+    }
+    );
+  }
 }

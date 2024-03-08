@@ -1,9 +1,12 @@
 header{
-    display: grid;
+    display: flex;
+    position: relative;
     border-bottom: black solid;
+    padding-top: 16px;
 }
 .back-button {
     margin-right: auto;
+    position: absolute;
 }  
 .span-title {
     display: block;

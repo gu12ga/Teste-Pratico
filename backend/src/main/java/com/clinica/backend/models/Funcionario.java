@@ -1,8 +1,9 @@
 package com.clinica.backend.models;
-
-import javax.persistence.*;
+import lombok.Data;
+import jakarta.persistence.*;
 
 @Entity
+@Data
 @Table(name = "funcionario", schema = "clinica_medica")
 public class Funcionario {
 
@@ -16,6 +17,4 @@ public class Funcionario {
     @OneToOne
     @JoinColumn(name = "id_pessoa")
     private Pessoa pessoa;
-
-    // getters and setters
 }

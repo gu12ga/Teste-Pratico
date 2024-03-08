@@ -1,7 +1,9 @@
 package com.clinica.backend.models;
-import javax.persistence.*;
+import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "pessoa", schema = "clinica_medica")
 public class Pessoa {
 
@@ -17,7 +19,5 @@ public class Pessoa {
 
     @Column(nullable = false, length = 1)
     private String flagTipo;
-
-    // getters and setters
 }
 
